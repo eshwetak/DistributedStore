@@ -46,11 +46,15 @@ class DistributedStore
 
 int main() {
   DistributedStore<int> d;
-  // Write test
+  // Write function
   d.write("apple", 20);
   d.write("ornage", 8);
-  // d.dump();
+
+  // read function
   cout<<d.read("apple")<<endl;
   cout<<d.read("temyh")<<endl;
+
+  // Dump function
+  d.dump();
   return 0;
 }
