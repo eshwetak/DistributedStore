@@ -6,10 +6,11 @@ using namespace std;
 
 template <typename T>
 class DistributedStore 
-{public:
+{
   vector<unordered_map<string, T>> stores;
   T NotFound;
-
+  
+  public:
   DistributedStore(): stores(10) {};
 
   int findStore(string key) {
