@@ -9,15 +9,16 @@ class DistributedStore
 {
   vector<unordered_map<string, T>> stores;
   T NotFound;
+  int storesCount;
   
   public:
-  DistributedStore(): stores(10) {};
+  DistributedStore(int sct): stores(sct), storesCount(sct) {};
 
   int findStore(string key) {
     if (key.size() == 0) return 0;
     
     char c = key[0];
-    return int(c)%10;
+    return int(c)%storesCount;
   }
 
   void write(string key, T val) {
@@ -46,7 +47,7 @@ class DistributedStore
 
 
 int main() {
-  DistributedStore<int> d;
+  DistributedStore<int> d(3);
   // Write function
   d.write("apple", 20);
   d.write("ornage", 8);
@@ -54,8 +55,10 @@ int main() {
   // read function
   cout<<d.read("apple")<<endl;
   cout<<d.read("temyh")<<endl;
+  cout<<endl;
 
   // Dump function
+  cout<<"display:"<<endl;
   d.dump();
   return 0;
 }
