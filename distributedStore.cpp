@@ -46,7 +46,7 @@ class DistributedStore
 
 int main() {
   DistributedStore<int> d;
-  // cout<< d.findStore("apple") << endl;
+  // Write test
   d.write("apple", 20);
   d.write("ornage", 8);
   // d.dump();
